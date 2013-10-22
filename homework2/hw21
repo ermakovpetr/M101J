@@ -1,0 +1,5 @@
+db.grades.aggregate(
+    { $match : { type : 'exam' , score : { $gt : 65 } } }, 
+    { $group : { _id :'$student_id', average : { $avg : '$score' } } }, 
+    { $sort : { average : -1 } }
+)
