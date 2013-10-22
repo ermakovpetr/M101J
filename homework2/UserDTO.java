@@ -62,8 +62,6 @@ public class UserDAO {
     public DBObject validateLogin(String username, String password) {
         DBObject user = null;
 
-        String passwordHash = makePasswordHash(password, Integer.toString(random.nextInt()));
-
         user = usersCollection.findOne(new BasicDBObject("_id", username));
 
         if (user == null) {
